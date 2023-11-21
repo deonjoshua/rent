@@ -19,5 +19,3 @@ puts "seeding database"
   )
 end
 puts "finished"
-
-
