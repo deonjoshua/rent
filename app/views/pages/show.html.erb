@@ -1,0 +1,9 @@
+
+    <h2>Rentals</h2>
+    <p>This is where you'll see the items you've rented from other</p>
+    <% @booking.each do |b|%>
+    <div class="card">
+      <%= b.status %>
+      <%= b.tool_id %>
+    </div>
+    <% end %>
