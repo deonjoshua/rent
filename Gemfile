@@ -47,6 +47,8 @@ gem "bootsnap", require: false
 # use faker
 gem "faker"
 
+gem "cloudinary"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

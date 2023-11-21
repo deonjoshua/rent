@@ -11,7 +11,7 @@
   <div class="row">
     <% @tools.each do|b| %>
       <div class="card" style="width: 20rem;height:30rem">
-          <%= image_tag(b.image_url)%>
+          <%= cl_image_tag b.image.key, height: 150, width: 300, crop: :fill %>
           <div class="card-body">
             <h5><strong><%= link_to b.name, tool_path(b.id) %></strong></h5>
             <p> $<%= b.rate %>/day</p>

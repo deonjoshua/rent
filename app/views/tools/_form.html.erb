@@ -1,8 +1,9 @@
 <%= simple_form_for(tool) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :rate %>
-  <%= f.input :condition %>
-  <%= f.input :image_url %>
+  <%= f.input :rate, input_html: { placeholder: '$' } %>
+  <%= f.input :condition, collection: %w(Mint Excellent Good Fair Poor)%>
+  <%= f.input :image, as: :file, label: 'Tool Image' %>
+
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
