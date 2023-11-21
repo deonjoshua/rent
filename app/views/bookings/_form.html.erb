@@ -1,0 +1,9 @@
+<div class="container">
+  <h3> Create new category list </h3>
+  <%= simple_form_for [@tool, @booking], data: { controller: 'flatpickr'} do |f| %>
+    <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate"} } %>
+    <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate"} } %>
+    <%= f.submit 'Request Tool Reservation', class: 'btn btn-primary my-4' %>
+  <% end %>
+  
+</div>
