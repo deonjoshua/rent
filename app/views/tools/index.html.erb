@@ -1,24 +1,23 @@
+
+
 <div class="container mt-3">
   <div class="row">
-    <div class="col-12">
-      <h1>All our Tools</h1>
+    <div class="col-12" id="tool-category">
+      <h1>Home Improvement Tools</h1>
     </div>
   </div>
+
+<div class="container mt-5">
   <div class="row">
-    <% @tools.each do |tool| %>
-      <div class="col-md-4">
-        <div class="flat-card">
-          <div class="flat-card-image" style="background-image: url(<%= tool.image_url %>)"></div>
-          <div class="flat-card-content">
-            <div class="flat-card-title">
-              <h4><%= tool.name %></h4>
-            </div>
-            <p><%= tool.description %></p>
-            <p><%= tool.rate %></p>
-            <p><%= tool.condition %></p>
+    <% @tools.each do|b| %>
+      <div class="card" style="width: 20rem;height:30rem">
+          <%= image_tag(b.image_url)%>
+          <div class="card-body">
+            <h5><strong><%= link_to b.name, tool_path(b.id) %></strong></h5>
+            <p> $<%= b.rate %>/day</p>
+            <p> <%= b.description%></p>
           </div>
         </div>
-      </div>
     <% end %>
   </div>
 </div>
