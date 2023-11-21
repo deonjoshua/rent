@@ -1,5 +1,5 @@
 class ToolsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit, :update, :destroy]
+  # before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
   def index
     @tools = Tool.all
@@ -11,6 +11,7 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.new(tool_params)
+    @tool.user = current_user
     if @tool.save
       redirect_to tools_path
     else
@@ -39,9 +40,9 @@ class ToolsController < ApplicationController
 
   private
 
-  def set_tool
-    @tool = Tool.find(params[:id])
-  end
+  # def set_tool
+  #   @tool = Tool.find(params[:id])
+  # end
 
   def tool_params
     params.require(:tool).permit(:name, :description, :rate, :condition, :image_url)

@@ -1,0 +1,24 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>All our Tools</h1>
+    </div>
+  </div>
+  <div class="row">
+    <% @tools.each do |tool| %>
+      <div class="col-md-4">
+        <div class="flat-card">
+          <div class="flat-card-image" style="background-image: url(<%= tool.image_url %>)"></div>
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4><%= tool.name %></h4>
+            </div>
+            <p><%= tool.description %></p>
+            <p><%= tool.rate %></p>
+            <p><%= tool.condition %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
