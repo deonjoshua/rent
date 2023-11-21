@@ -4,7 +4,6 @@ class BookingsController < ApplicationController
     @tool = Tool.find(params[:tool_id])
     @booking = Booking.new
     @booking.tool_id = @tool
-
   end
 
   def create
@@ -13,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.tool_id = @tool
     @booking.user = current_user
     if @booking.save
-      redirect_to tool_booking_path(@tool, @booking), notice: 'Booking request send successfully!'
+      redirect_to dashboard_path, notice: 'Booking request send successfully!'
     else
       render :new
     end

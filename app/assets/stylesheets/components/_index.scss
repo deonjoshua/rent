@@ -4,3 +4,22 @@
 @import "form_legend_clear";
 @import "navbar";
 @import "cards";
+@import "banner";
+
+
+body{
+  background-color: white;
+}
+
+
+h3{
+  font-size: 20px;
+  font-weight: 600;
+  font-family: revert;
+}
+
+p{
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

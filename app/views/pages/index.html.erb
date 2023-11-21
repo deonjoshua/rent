@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 d-flex">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile-img", alt: "dropdown menu" %>
+        <div class="profile pt-5">
+        <h3>Name: <%= @user.first_name %> <%= @user.last_name  %></h3>
+        <p>Phone Number: <%= @user.phone_number %></p>
+        <p>Address: <%= @user.address %></p>
+        <%=link_to "Edit Profile",  edit_user_registration_path, class: "btn btn-flat" %>
+        </div>
+    </div>
+
+    <div class="col-12 mt-5 ">
+      <h2>Your Listing</h2>
+      <% @tool.each do |t| %>
+      <div class="card" style="width: 50rem;">
+        <div class="tool-row d-flex" >
+          <%= cl_image_tag t.image.key, height: 150, width: 150, crop: :scale %>
+          <div class="description ml-3">
+            <h3><%= t.name %></h3>
+            <p>$<%= t.rate %>/day</p>
+          </div>
+          <%=link_to "View Item",  tool_path(t.id), class: "btn btn-flat" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
