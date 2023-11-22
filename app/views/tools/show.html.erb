@@ -10,9 +10,11 @@
   <div class="col-6">
     <h3><%= @tool.name %></h3>
     <p>$<%= @tool.rate %>/day</p>
-    <button type="button" class="btn btn-flat" data-bs-toggle="modal" data-bs-target="#tool_modal">
-      <%= link_to "Check price and availability", new_tool_booking_path(@tool.id), class: "btn btn-flat"%>
-    </button>
-
+    <div data-controller="toggle" class="mt-5">
+      <button data-action="click->toggle#fire" class="btn btn-outline-primary">Rent Tool</button>
+      <div data-toggle-target="togglableElement" class="d-none">
+        <%= render "bookings/form", tool: @tool, booking: @booking %>
+      </div>
+    </div>
   </div>
 </div>
