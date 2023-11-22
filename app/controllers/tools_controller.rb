@@ -2,7 +2,7 @@ class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tools = Tool.all
+    @tools = Tool.where.not(user_id: current_user.id)
   end
 
   def new
