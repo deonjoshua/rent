@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.tool_id = @tool
     @booking.user = current_user
     if @booking.save
-      redirect_to dashboard_path, notice: 'Booking request send successfully!'
+      redirect_to tools_bookings_path, notice: 'Succesful booking!'
     else
       render :new
     end
