@@ -3,6 +3,9 @@ class ToolsController < ApplicationController
 
   def index
     @tools = Tool.all
+    if params[:query].present?
+      @tools = @tools.where("name ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def new

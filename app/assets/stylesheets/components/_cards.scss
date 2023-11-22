@@ -7,6 +7,7 @@
   justify-content: space-between;
 }
 
+// target all card
 .card {
   width: 100%;
   position: relative;
@@ -21,7 +22,6 @@
   a{
     text-decoration: none;
   }
-
 }
 
 .card-image {
@@ -70,13 +70,24 @@
 }
 
 
-.tool-listing{
-  grid: 1fr 1fr 1fr 1fr;
+.tool-card-body{
+  h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  h4{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
 }
 
 
 .description{
   align-items: center;
-  color:white;
+
   font-weight: 500;
 }

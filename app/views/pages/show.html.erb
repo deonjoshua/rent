@@ -1,9 +1,9 @@
 
     <h2>Rentals</h2>
     <p>This is where you'll see your listing</p>
-    <% @booking.each do |b|%>
+    <% @tools.each do |b|%>
     <div class="card">
-      <%= b.status %>
-      <%= b.tool_id %>
+      <%= b.name %>
+      <%= b.rate %>
     </div>
     <% end %>

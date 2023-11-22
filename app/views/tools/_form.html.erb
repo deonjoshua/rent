@@ -3,7 +3,7 @@
   <%= f.input :description %>
   <%= f.input :rate, input_html: { placeholder: '$' } %>
   <%= f.input :condition, collection: %w(Mint Excellent Good Fair Poor)%>
-  <%= f.input :image, as: :file, label: 'Tool Image' %>
+  <%= f.input :image, as: :file, label: 'Upload' %>
 
   <%= f.submit class: "btn btn-primary" %>
 <% end %>
