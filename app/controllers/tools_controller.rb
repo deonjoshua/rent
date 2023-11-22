@@ -2,9 +2,9 @@ class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tools = Tool.all
+    @tools = Tool.where.not(user_id: current_user.id)
     if params[:query].present?
-      @tools = @tools.where("name ILIKE ?", "%#{params[:query]}%")
+      @tools = (@tools.where("name ILIKE ?", "%#{params[:query]}%") && @tools)
     end
   end
 

@@ -3,11 +3,13 @@ require "open-uri"
 User.destroy_all
 
 puts "Creating User"
+
 User.create!(email: "deon@gmail.com", password: "deonnn", first_name: "Deon", last_name:"Joshua", address: "Armadale", phone_number:"12345", )
 User.create!(email: "wendy@gmail.com", password: "wendyy", first_name: "Wendy", last_name:"Henry", address: "Carnegie", phone_number:"12345", )
 User.create!(email: "bob@gmail.com", password: "bobbbb", first_name: "Bob", last_name:"Marley", address: "Hawthorn", phone_number:"12345", )
 User.create!(email: "lucy@gmail.com", password: "lucyyy", first_name: "Lucy", last_name:"Santiago", address: "Newport", phone_number:"12345", )
 User.create!(email: "john@gmail.com", password: "johnnn", first_name: "John", last_name:"Wick", address: "Brunswick", phone_number:"12345", )
+
 puts "Seeding Database"
 
 file = URI.open("https://media.istockphoto.com/id/466428630/photo/screwdriver.jpg?s=1024x1024&w=is&k=20&c=5ksU5NNzUmzJlKLnDP--iRdy47mVq7XS96m2UeriKRU=")
@@ -82,7 +84,7 @@ article = Tool.new(
     description: "a hand tool used to hold objects firmly.",
     rate: Faker::Number.number(digits: 2),
     condition:"Mint",
-    user: User.first
+    user: User.last
   )
 article.image.attach(io: file, filename: "plier.png", content_type: "image/png")
 article.save!
@@ -93,7 +95,7 @@ article = Tool.new(
     description: "a simple and inexpensive holder, flat, approximately one inch (25 mm) wide and three to four inches (75 to 100 mm) long, made of metal and plastic.",
     rate: Faker::Number.number(digits: 2),
     condition:"Good",
-    user: User.first
+    user: User.last
   )
 article.image.attach(io: file, filename: "knife.png", content_type: "image/png")
 article.save!
@@ -104,7 +106,7 @@ article = Tool.new(
     description: "tool for cutting solid materials to prescribed lengths or shapes.",
     rate: Faker::Number.number(digits: 2),
     condition:"Poor",
-    user: User.first
+    user: User.last
   )
 article.image.attach(io: file, filename: "saw.png", content_type: "image/png")
 article.save!
@@ -115,7 +117,7 @@ article = Tool.new(
     description: "a suction device consisting of a cup-shaped piece of rubber on the end of a stick, used to get rid of things that are blocking pipes.",
     rate: Faker::Number.number(digits: 2),
     condition:"Good",
-    user: User.first
+    user: User.last
   )
 article.image.attach(io: file, filename: "plunger.png", content_type: "image/png")
 article.save!
@@ -126,7 +128,7 @@ article = Tool.new(
     description: "a small handheld tool that's used for for driving bolts and screws with a hexagonal socket.",
     rate: Faker::Number.number(digits: 2),
     condition:"Mint",
-    user: User.first
+    user: User.last
   )
 article.image.attach(io: file, filename: "hex.png", content_type: "image/png")
 article.save!
@@ -137,7 +139,7 @@ article = Tool.new(
     description: " handheld device used with wood buildings to locate framing studs located behind the final walling surface, usually drywall.",
     rate: Faker::Number.number(digits: 2),
     condition:"Excellent",
-    user: User.first
+    user: User.last
   )
 article.image.attach(io: file, filename: "stud.png", content_type: "image/png")
 article.save!
@@ -148,7 +150,7 @@ article = Tool.new(
     description: "a self-supporting, foldable, portable ladder that is non-adjustable in length, 32-inches or less in overall size, with flat steps and without a pail shelf.",
     rate: Faker::Number.number(digits: 2),
     condition:"Poor",
-    user: User.first
+    user: User.last
   )
 article.image.attach(io: file, filename: "stool.png", content_type: "image/png")
 article.save!
@@ -192,7 +194,7 @@ article = Tool.new(
     description: "device for establishing a horizontal plane. It consists of a small glass tube containing alcohol or similar liquid and an air bubble.",
     rate: Faker::Number.number(digits: 2),
     condition:"Good",
-    user: User.first
+    user: User.last
   )
 article.image.attach(io: file, filename: "level.png", content_type: "image/png")
 article.save!
@@ -203,7 +205,7 @@ article = Tool.new(
     description: "a small cart with a single wheel at the front and two supporting legs and two handles at the rear, used typically for carrying loads in building work or gardening.",
     rate: Faker::Number.number(digits: 2),
     condition:"Fair",
-    user: User.first
+    user: User.last
   )
 article.image.attach(io: file, filename: "barrow.png", content_type: "image/png")
 article.save!
