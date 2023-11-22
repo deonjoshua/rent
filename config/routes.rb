@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  devise_scope :user do
+    authenticated :user do
+      root 'tools#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
+  end
+
   get 'dashboard', to: "pages#index", as: :dashboard
   get 'bookings', to: "pages#show", as: :bookings
-  root to: "pages#home"
-    resources :tools do
-      resources :bookings
-    end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Defines the root path route ("/")
-  # root "articles#index"
+
+  resources :tools do
+    resources :bookings
+  end
 end

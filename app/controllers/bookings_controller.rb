@@ -4,15 +4,18 @@ class BookingsController < ApplicationController
     @tool = Tool.find(params[:tool_id])
     @booking = Booking.new
     @booking.tool_id = @tool
+    @booking.status = "Available"
   end
 
   def create
     @tool= params[:tool_id]
     @booking = Booking.new(booking_params)
+    @booking.status = "Booked"
+    @booking.price = (@booking.end_date - @booking.start_date) * Tool.find(@tool).rate
     @booking.tool_id = @tool
     @booking.user = current_user
     if @booking.save
-      redirect_to tools_bookings_path, notice: 'Succesful booking!'
+      redirect_to dashboard_path, notice: 'Succesful booking!'
     else
       render :new
     end

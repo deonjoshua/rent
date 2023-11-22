@@ -31,5 +31,6 @@ export default class extends Controller {
           "<span class='text-danger fw-light'>Invalid dates</span>";
       }
     }
+
   }
 }
