@@ -1,0 +1,20 @@
+<%# list of movie with overview and rating %>
+<div class="container mt-12 d-flex">
+  <div class="col-6">
+    <div class="show-img"><%= image_tag(@tool.image)%></div>
+    <div class="card-body">
+      <p> <%= @tool.description %></p>
+      <p> <%= @tool.condition %></p>
+    </div>
+  </div>
+  <div class="col-6">
+    <h3><%= @tool.name %></h3>
+    <p>$<%= @tool.rate %>/day</p>
+    <div data-controller="toggle" class="mt-5">
+      <button data-action="click->toggle#fire" class="btn btn-outline-primary">Rent Tool</button>
+      <div data-toggle-target="togglableElement" class="d-none">
+        <%= render "bookings/form", tool: @tool, booking: @booking %>
+      </div>
+    </div>
+  </div>
+</div>
