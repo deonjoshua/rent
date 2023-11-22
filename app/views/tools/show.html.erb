@@ -7,11 +7,11 @@
       <p> <%= @tool.condition %></p>
     </div>
   </div>
-  <div class="col-6">
-    <h3><%= @tool.name %></h3>
-    <p>$<%= @tool.rate %>/day</p>
+  <div class="col-6 pt-10" id="showpage">
+    <h3 class="tool-show"><%= @tool.name %></h3>
+    <p class="tool-rate">$<%= @tool.rate %>/day</p>
     <div data-controller="toggle" class="mt-5">
-      <button data-action="click->toggle#fire" class="btn btn-outline-primary">Rent Tool</button>
+      <button data-action="click->toggle#fire" class="btn btn-outline-primary">Check Availability</button>
       <div data-toggle-target="togglableElement" class="d-none">
         <%= render "bookings/form", tool: @tool, booking: @booking %>
       </div>

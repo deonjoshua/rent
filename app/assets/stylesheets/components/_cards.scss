@@ -17,6 +17,13 @@
   padding: 10px;
 }
 
+.card-body{
+  a{
+    text-decoration: none;
+  }
+
+}
+
 .card-image {
   height: 180px;
   background-position: center;
@@ -70,4 +77,6 @@
 
 .description{
   align-items: center;
+  color:white;
+  font-weight: 500;
 }
