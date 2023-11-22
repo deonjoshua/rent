@@ -1,5 +1,6 @@
 <div class="container">
 <%# image here %>
+<%= link_to "Back to listing", tool_path(@tool.id) %>
   <div class="row" d-flex>
     <div class ='col-8'>
       <%= cl_image_tag @tool.image.key, height: 300, width: 400, crop: :scale%>
@@ -13,7 +14,7 @@
           <!-- On change of dates, it triggers our update inside of our JS controller -->
           <%= f.input :start_date, html5: true, input_html: { data: { booking_price_target: 'start_date', action: 'change->booking-price#update' }, min: Date.today } %>
           <%= f.input :end_date, html5: true, input_html: { data: { booking_price_target: 'end_date', action: 'change->booking-price#update' }, min: Date.today } %>
-          <%= f.submit 'Request Tool Reservation', class: 'btn btn-primary my-4' %>
+          <%= f.submit 'Book the Item', class: 'btn btn-primary my-4' %>
           <!-- Hidden when no dates chosen, total amount displayed here when changed -->
           <p class='mt-3 d-flex align-items-center justify-content-between'>
             <span data-booking-price-target='info'></span>

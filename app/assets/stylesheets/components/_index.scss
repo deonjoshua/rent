@@ -5,16 +5,28 @@
 @import "navbar";
 @import "cards";
 @import "banner";
+@import "button";
 
 
 body{
   background-color: white;
 }
 
+h2{
+  font-size: 25px;
+  font-weight: 500;
+  font-family: revert;
+}
 
 h3{
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 400;
+  font-family: revert;
+}
+
+h4{
+  font-size: 18px;
+  font-weight: 400;
   font-family: revert;
 }
 
