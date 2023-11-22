@@ -1,30 +1,84 @@
-<div class="container">
+<div class="container-fluid mt-5">
+
   <div class="row">
-    <div class="col-12 d-flex">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile-img", alt: "dropdown menu" %>
+    <div class="col-3" style="background-color: grey">
+      <div class="row">
+        <div class="profile-dash">
+          <%= image_tag "", class: "profile-img", alt: "image" %>
+        </div>
         <div class="profile pt-5">
         <h3>Name: <%= @user.first_name %> <%= @user.last_name  %></h3>
         <p>Phone Number: <%= @user.phone_number %></p>
         <p>Address: <%= @user.address %></p>
         <%=link_to "Edit Profile",  edit_user_registration_path, class: "btn btn-flat" %>
         </div>
+      </div>
     </div>
 
-    <div class="col-12 mt-5 ">
-      <h2>Your Listing</h2>
-      <% @tool.each do |t| %>
-      <div class="card" style="width: 50rem;">
-        <div class="tool-row d-flex" >
-          <%= cl_image_tag t.image.key, height: 150, width: 150, crop: :scale %>
-          <div class="description ml-3">
-            <h3><%= t.name %></h3>
-            <p>$<%= t.rate %>/day</p>
-          </div>
-          <%=link_to "View Item",  tool_path(t.id), class: "btn btn-flat" %>
+    <div class="col-9">
+      <h2>DASHBOARD</h2>
+      <div class="row">
+        <div class="card" style="width: 25rem;" id="total-listing">
+          <p>TOTAL LISTING</p>
+          <h3><%= @tools.length %> items </h3>
+        </div>
+        <div class="card" style="width: 25rem;" id="total-booking">
+          <p>WHAT I RENT</p>
+          <h3><%= @booking.length %> items</h3>
+        </div>
+        <div class="card" style="width: 25rem;" id="total-rental">
+          <p>THING THAT I RENTED</p>
+          <h3><%= %>items</h3>
         </div>
       </div>
-      <% end %>
-    </div>
 
-  </div>
-</div>
+      <div class="listing-card">
+        <h2>Your Listing</h2>
+        <div class="row " id="tool_listing">
+          <% @tools.each do |t| %>
+          <div class="card" style="width: 18rem;",  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path t.image.key, height: 100, crop: :fill %>')">
+            <div class="tool-row d-flex" style="justify-content: center;text-align:center;" >
+              <div class="description ml-3">
+                <h4><%= t.name %></h4>
+                <p>$<%= t.rate %>/day</p>
+                <%=link_to "View Item",  tool_path(t.id), class: "btn btn-flat" %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="booking-card">
+        <h2>My Booking on Other Items</h2>
+        <div class="row">
+          <% @booking.each do |t| %>
+          <div class="card" style="width: 35rem;">
+            <div class="tool-row" d-flex style="justify-content: center;text-align:center;" >
+              <div class="description ml-3">
+                <p>Booking Status :<%= t.status %></p>
+                <p>Total Price: $<%= t.price %>/day</p>
+                <p>Start Date: <%= t.start_date %></p>
+                <p>End Date<%= t.end_date %></p>
+              </div>
+              <%=link_to "View Item",  tool_path(t.id), class: "btn btn-flat" %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="rental-card">
+        <h2>Booking on my Item</h2>
+        <div class="row">
+        <% @tools.each do |tool| %>
+          <% Booking.all.each do |booking| %>
+            <% if booking.tool_id == tool.id %>
+            <div class="card" style="width: 35rem; justify-content: center;text-align:center;">
+              <h3>Tool: <%= tool.name %></h3>
+              <p>Booking Date: <%= booking.start_date %> - <%= booking.end_date %></p>
+              <p>Booking Status: <%= booking.status %></p>
+              <p>Total Price: <%= booking.price %></p>
+            </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>

@@ -6,15 +6,20 @@ class PagesController < ApplicationController
 
   def index
     @user = current_user
-    # find tool where user_id is 1
-    @tool = Tool.where(user_id:@user.id)
+    # tool for current user
+    @tools = Tool.where(user_id:@user.id)
 
+    # booking on other tool
+    @booking = Booking.where(user_id:@user.id)
+    # @booking.tool_id = Booking.find(tool_id:params[:id])
+
+    # find booking on other people tool
+    # @booking = Booking.where(user_id:@tool.user_id)
     # raise
 
   end
 
   def show
     @user = current_user
-    @booking = Booking.where(user_id:@user.id)
   end
 end
