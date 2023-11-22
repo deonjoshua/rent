@@ -1,33 +1,45 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>RENT tools <strong>from people in</strong> your area<strong></h1>
-    <p>for your upcoming DIY projects</p>
-    <a class="btn btn-flat" href="#">Sign Up</a>
-  </div>
-</div>
-
-<section class="hero">
-  <div class="container">
-    <%# insert banner background %>
-      <div class="col-md-6 hero__info">
-        <h1 style="color: #black">RENT tools <br><strong>from people in your area</strong></h1>
-        <div class="h4 hero__sub-heading"
-          style="color: #black">for your upcoming DIY projects
-        </div>
-
-        <div class="hero__btns-wrapper">
-          <div class="hero__btn-wrapper">
-            <a href="" target="_blank" class="btn hero__btn hero__btn--1 " style="color: black">Sign Up </a>
-          </div>
-        </div>
+<%# hero %>
+<div class="container">
+  <div class="banner">
+    <div class="col-md-6 info">
+      <h1 style="color: #black">RENT tools <br><strong>from people in your area</strong></h1>
+      <div class="banner-subheading"
+        style="color: #black">for your upcoming DIY projects
       </div>
 
-      <div class="col-md-6 hero__image" data-aos="fade-left" data-aos-duration="4000">
-        <picture id="" class="hero__bg"><source data-srcset="">
-        <img src="" data-sizes="auto" alt="" class="lazyload img-fluid " ></picture>
-        <picture id="" class="hero__image__right d-block d-md-none"><source data-srcset="">
-        <img src="" data-sizes="auto" alt="" class="lazyload img-fluid " ></picture>
+      <div class="btn-wrapper">
+        <div class="banner-button">
+          <a href="" target="_blank" class="btn btn-secondary " style="color: black">Sign Up </a>
+        </div>
       </div>
     </div>
   </div>
-</section>
+<%# card %>
+
+  <div class="second-call">
+    <div class="card-home-one">
+      <h3>TOOL OWNERS</h3>
+    <p>Do you have spare tools & equipment sitting around in your garage, doing nothing? (Remember how much you paid for them?)</p>
+    </div>
+    <div class="card-home-two">
+      <h3>TOOL RENTERS</h3>
+      <p>Have a project, but not the tools? (And don’t want to deal with the clutter, hassle, & expense of buying them?)</p>
+    </div>
+  </div>
+</div>
+
+
+<%# search button %>
+
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: tools_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

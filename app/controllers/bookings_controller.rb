@@ -25,6 +25,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    if @booking.update(booking_params)
+        redirect_to @booking, notice: 'Change request updated!'
+      else
+        render :edit
+      end
+  end
+
   private
 
   def booking_params

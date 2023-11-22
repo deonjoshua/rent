@@ -1,23 +1,36 @@
 
-
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-12" id="tool-category">
-      <h1>Home Improvement Tools</h1>
+<div class="container">
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-12" id="tool-category">
+        <h1>Home Improvement Tools</h1>
+      </div>
+      <div class="row">
+      <div class="col-sm-8 my-3">
+        <%= form_with url: tools_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Look for something specific?"
+            %>
+          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
 
-<div class="container mt-5">
-  <div class="row">
-    <% @tools.each do|b| %>
-      <div class="card" style="width: 20rem;height:30rem">
-          <%= cl_image_tag b.image.key, height: 150, width: 300, crop: :fill %>
-          <div class="card-body">
-            <h5><strong><%= link_to b.name, tool_path(b.id) %></strong></h5>
-            <p> $<%= b.rate %>/day</p>
-            <p> <%= b.description%></p>
+
+  <div class="container mt-5">
+    <div class="row">
+      <% @tools.each do|b| %>
+        <div class="tool-card" style="width: 20rem;">
+            <%= cl_image_tag b.image.key, height: 150, width: 300, crop: :fill %>
+            <div class="tool-card-body">
+              <h3><strong><%= link_to b.name, tool_path(b.id) %></strong></h3>
+              <h4>$<%= b.rate %>/day</h4>
+            </div>
           </div>
-        </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

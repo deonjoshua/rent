@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   end
 
   get 'dashboard', to: "pages#index", as: :dashboard
-  get 'bookings', to: "pages#show", as: :bookings
+  get 'mylisting', to: "pages#show", as: :mylisting
+  get 'home', to: "pages#home", as: :homepage
 
   resources :tools do
     resources :bookings

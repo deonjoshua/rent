@@ -3,14 +3,19 @@ require "open-uri"
 User.destroy_all
 
 puts "Creating User"
-User.create!(email: "deon@gmail.com", password: "deonnn", first_name: "Deon", last_name: "Joshua", address: "Armadale, VIC", phone_number: "12345")
-User.create!(email: "wendy@gmail.com", password: "wendyy", first_name: "Wendy", last_name: "Henry", address: "Carnegie, VIC", phone_number: "12345")
+
+User.create!(email: "deon@gmail.com", password: "deonnn", first_name: "Deon", last_name:"Joshua", address: "Armadale", phone_number:"12345", )
+User.create!(email: "wendy@gmail.com", password: "wendyy", first_name: "Wendy", last_name:"Henry", address: "Carnegie", phone_number:"12345", )
+User.create!(email: "bob@gmail.com", password: "bobbbb", first_name: "Bob", last_name:"Marley", address: "Hawthorn", phone_number:"12345", )
+User.create!(email: "lucy@gmail.com", password: "lucyyy", first_name: "Lucy", last_name:"Santiago", address: "Newport", phone_number:"12345", )
+User.create!(email: "john@gmail.com", password: "johnnn", first_name: "John", last_name:"Wick", address: "Brunswick", phone_number:"12345", )
+
 puts "Seeding Database"
 
 file = URI.open("https://media.istockphoto.com/id/466428630/photo/screwdriver.jpg?s=1024x1024&w=is&k=20&c=5ksU5NNzUmzJlKLnDP--iRdy47mVq7XS96m2UeriKRU=")
 article = Tool.new(
   name: "Screwdriver",
-  description: "a hand tool for turning a screw, consisting of a handle attached to a long, narrow shank of metal, which tapers and flattens out to a tip that fits into the slotted head of a screw.",
+  description: "A hand tool for turning a screw, consisting of a handle attached to a long, narrow shank of metal, which tapers and flattens out to a tip that fits into the slotted head of a screw.",
   rate: Faker::Number.number(digits: 2),
   condition:"Mint",
   user: User.first
@@ -43,7 +48,7 @@ article.save!
 file = URI.open("https://media.istockphoto.com/id/173560196/photo/gray-ladder-on-a-white-background.jpg?s=1024x1024&w=is&k=20&c=L_dndFFMqfX-6NmioJhGjSPrKVaAhcxmELtK7U1R8pQ=")
 article = Tool.new(
     name: "Ladder",
-    description: "a piece of equipment consisting of a series of steps between two upright lengths of metal, used for climbing up or down something.",
+    description: "A piece of equipment consisting of a series of steps between two upright lengths of metal, used for climbing up or down something.",
     rate: Faker::Number.number(digits: 2),
     condition:"Good",
     user: User.first
@@ -203,4 +208,78 @@ article = Tool.new(
     user: User.last
   )
 article.image.attach(io: file, filename: "barrow.png", content_type: "image/png")
+article.save!
+#***********#
+file = URI.open("https://images.pexels.com/photos/12760004/pexels-photo-12760004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+article = Tool.new(
+    name: "Metal Cutter",
+    description: "Got a little project. Our metal cutter are up for rental. Suitable for home renovation project.",
+    rate: Faker::Number.number(digits: 2),
+    condition:"Fair",
+    user: User.last
+  )
+article.image.attach(io: file, filename: "metal cutter.png", content_type: "image/png")
+article.save!
+
+file = URI.open("https://images.pexels.com/photos/4107277/pexels-photo-4107277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+article = Tool.new(
+    name: "Household Vacuum",
+    description: "Strong vacuum for household use only. Able to vacuum in wet and dry area. Tools and vacuum bag are provided. Please remove the bag after use",
+    rate: Faker::Number.number(digits: 2),
+    condition:"Fair",
+    user: User.last
+  )
+article.image.attach(io: file, filename: "vacuum.png", content_type: "image/png")
+article.save!
+file = URI.open("https://images.pexels.com/photos/2317384/pexels-photo-2317384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+article = Tool.new(
+    name: "Angle Grinder",
+    description: "Construction grade angle grinder. Suitable for wood and metal surface. Grinding pad are provided for wood surface only. Please provide yourself if different pad are required",
+    rate: Faker::Number.number(digits: 2),
+    condition:"Fair",
+    user: User.last
+  )
+article.image.attach(io: file, filename: "anglegrinder.png", content_type: "image/png")
+article.save!
+file = URI.open("https://images.pexels.com/photos/5710958/pexels-photo-5710958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+article = Tool.new(
+    name: "800W Belt Sander",
+    description: "Professional Quality. Fast sanding. Use for wood only.Do not use to sand metal.",
+    rate: Faker::Number.number(digits: 2),
+    condition:"Excellent",
+    user: User.last
+  )
+article.image.attach(io: file, filename: "beltsander.png", content_type: "image/png")
+article.save!
+file = URI.open("https://images.pexels.com/photos/3616746/pexels-photo-3616746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+article = Tool.new(
+    name: "Construction Grade Vacuum",
+    description: "Suitable for house renovation project. Strong suction to collect the dust. Bag are not provided. Tool only",
+    rate: Faker::Number.number(digits: 2),
+    condition:"Fair",
+    user: User.last
+  )
+article.image.attach(io: file, filename: "constvacuum.png", content_type: "image/png")
+article.save!
+
+file = URI.open("https://images.pexels.com/photos/5486787/pexels-photo-5486787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+article = Tool.new(
+    name: "18V Hot Glue Gun (Tool Only)",
+    description: "Perfect for craft work.Portable and light to use. Equipped with safety button. Glue is not provided",
+    rate: Faker::Number.number(digits: 2),
+    condition:"Excellent",
+    user: User.last
+  )
+article.image.attach(io: file, filename: "gluegun.png", content_type: "image/png")
+article.save!
+
+file = URI.open("https://plus.unsplash.com/premium_photo-1663089940398-c4b6b81306b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGFuZ2xlJTIwZ3JpbmRlcnxlbnwwfHwwfHx8MA%3D%3D")
+article = Tool.new(
+    name: "Hand Sander",
+    description: "Portable wood sander. Lightweight and easy to use for small project.Included 2 set of batteries",
+    rate: Faker::Number.number(digits: 2),
+    condition:"Fair",
+    user: User.last
+  )
+article.image.attach(io: file, filename: "sander.png", content_type: "image/png")
 article.save!
