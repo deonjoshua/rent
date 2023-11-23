@@ -24,7 +24,14 @@ class ToolsController < ApplicationController
   end
 
   def show
+
     @booking = Booking.new
+    @user = User.find(@tool.user_id)
+    # raise
+    @markers ={
+      lat: @user.latitude,
+      lng: @user.longitude
+    }
   end
 
   def edit

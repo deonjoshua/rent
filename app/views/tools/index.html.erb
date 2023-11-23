@@ -1,36 +1,33 @@
 
-<div class="container">
-  <div class="container mt-3">
-    <div class="row">
-      <div class="col-12" id="tool-category">
-        <h1>Home Improvement Tools</h1>
-      </div>
-      <div class="row">
-      <div class="col-sm-8 my-3">
-        <%= form_with url: tools_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Look for something specific?"
-            %>
-          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+<div class="container-fluid mt-5">
+  <div class="row-tool">
+    <div class="col-10" id="tool-category">
+      <h1>Home Improvement Tools</h1>
+    </div>
+    <div class="col-sm-4 my-3">
+      <%= form_with url: tools_path, method: :get, class: "tool-form d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Look for something specific?"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+    <div class="col-12 mt-5">
+      <h3><%= @tools.length %> items found </h3>
+      <div class="tool-maincard">
+        <% @tools.each do|b| %>
+          <div class="tool-card" >
+              <%= cl_image_tag b.image.key, height: 150, width: 300, crop: :fill %>
+              <div class="tool-card-body">
+                <h3><strong><%= link_to b.name, tool_path(b.id) %></strong></h3>
+                <h4>$<%= b.rate %>/day</h4>
+              </div>
+            </div>
         <% end %>
       </div>
-    </div>
-  </div>
-
-
-  <div class="container mt-5">
-    <div class="row">
-      <% @tools.each do|b| %>
-        <div class="tool-card" style="width: 20rem;">
-            <%= cl_image_tag b.image.key, height: 150, width: 300, crop: :fill %>
-            <div class="tool-card-body">
-              <h3><strong><%= link_to b.name, tool_path(b.id) %></strong></h3>
-              <h4>$<%= b.rate %>/day</h4>
-            </div>
-          </div>
-      <% end %>
     </div>
   </div>
 </div>

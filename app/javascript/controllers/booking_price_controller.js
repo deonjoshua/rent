@@ -16,14 +16,14 @@ export default class extends Controller {
       if (diffInDays > 0) {
         // displays the daily rate
         this.infoTarget.innerText = `$${pricePerDay} x ${diffInDays} day`;
-        this.priceTarget.innerHTML = `<span>$${(
+        this.priceTarget.innerHTML = `<span><medium class='fw-light'>Total Price: $${(
           diffInDays * pricePerDay
-        ).toLocaleString()}</span> <small class='fw-light'>total</small> `;
+        ).toLocaleString()}</medium></span>`;
       } else if (diffInDays === 0) {
         // displays 1-day minimum if end date is same as start date
         this.infoTarget.innerText = "";
         this.priceTarget.innerHTML =
-          "<span class='text-danger fw-light'>1-night mininum</span>";
+          "<span class='text-danger fw-light'>1-day minimum</span>";
       } else {
         // displays invalid if the end date is before the start or not overnight
         this.infoTarget.innerText = "";
