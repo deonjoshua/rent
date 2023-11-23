@@ -1,27 +1,27 @@
 class BookingsController < ApplicationController
 
   def new
-    @tool = Tool.find(params[:tool_id])
     @booking = Booking.new
     @booking.tool_id = @tool
     @booking.status = "Available"
   end
 
   def create
-    @tool= params[:tool_id]
-    if !(Tool.find(@tool).user_id == current_user.id)
-      @booking = Booking.new(booking_params)
+    @tool = Tool.find(params[:tool_id])
+    @tool_id = params[:tool_id]
+    @booking = Booking.new(booking_params)
+    if (@booking.end_date == nil || @booking.start_date == nil)
+      redirect_to tool_path(@tool), notice: "Please enter dates"
+    else
+      @booking.price = (@booking.end_date - @booking.start_date) * Tool.find(@tool_id).rate
       @booking.status = "Booked"
-      @booking.price = (@booking.end_date - @booking.start_date) * Tool.find(@tool).rate
-      @booking.tool_id = @tool
+      @booking.tool_id = @tool_id
       @booking.user = current_user
       if @booking.save
-        redirect_to dashboard_path, notice: 'Succesful booking!'
+        redirect_to tool_booking_path(@tool_id, @booking.id), notice: 'Succesful booking!'
       else
         render :new
       end
-    else
-      redirect_to tools_path, notice: "You can't book your own Tool mate!"
     end
   end
 

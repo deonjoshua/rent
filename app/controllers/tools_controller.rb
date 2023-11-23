@@ -4,7 +4,7 @@ class ToolsController < ApplicationController
   def index
     @tools = Tool.where.not(user_id: current_user.id)
     if params[:query].present?
-      @tools = (@tools.where("name ILIKE ?", "%#{params[:query]}%") && @tools)
+      @tools = @tools.where("name ILIKE ?", "%#{params[:query]}%")
     end
   end
 
@@ -47,7 +47,7 @@ class ToolsController < ApplicationController
 
   def destroy
     @tool.destroy
-    redirect_to tools_path, status: :see_other
+    redirect_to mylisting_path, status: :see_other
   end
 
   private

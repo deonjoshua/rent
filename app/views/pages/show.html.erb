@@ -5,5 +5,6 @@
     <div class="card">
       <%= b.name %>
       <%= b.rate %>
+      <%= link_to "Delete Tool Listing", tool_path(b), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this tool?" } %>
     </div>
     <% end %>
