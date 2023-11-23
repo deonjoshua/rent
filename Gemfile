@@ -49,6 +49,8 @@ gem "faker"
 
 gem "cloudinary"
 
+gem "geocoder"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

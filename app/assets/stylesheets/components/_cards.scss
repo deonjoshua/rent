@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+$main-color: #712323;
+$secondary-color: #A27777;
+$tertiary-color:#32D89C;
+$main-font: 'Poppins', sans-serif;
+
+
 .flex {
   display: flex;
 }
@@ -18,11 +26,7 @@
   padding: 10px;
 }
 
-.card-body{
-  a{
-    text-decoration: none;
-  }
-}
+
 
 .card-image {
   height: 180px;
@@ -48,6 +52,34 @@
   border-radius: 3px;
 }
 
+// showpage tool
+
+#showpage{
+  margin-left: 40px;
+  position: sticky;
+  top: 0;
+}
+
+.card-body{
+  h3{
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  p{
+    font-family: $main-font;
+    font-weight: 400;
+    font-size: 18px;
+    padding-top: 10px;
+  }
+  h5{
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 20px;
+    padding-top: 10px;
+  }
+}
+
 .show-card {
   background: #F8F9FA;
   padding: 20px;
@@ -65,26 +97,98 @@
 
 .show-img{
  img{
-  width: 20rem;
+  width: 45rem;
  }
 }
 
+.tool-show{
+  font-size: 29px;
+  font-family: $main-font;
+  font-weight:700;
+  color: $main-color;
 
-.tool-card-body{
-  h3{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-    text-decoration: none;
+}
+
+.tool-rate{
+  font-size: 21px;
+  font-family:$main-font;
+  font-weight: 500;
+  p{
+    font-size: 15px;
+    font-family: $main-font;
   }
-  h4{
+}
+
+.showtoolbtn{
+    border-radius: 20px;
+    border-color: $main-color;
+    color: $main-color;
+    font-weight: 500;
+    font-size: 16px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 76px;
+    padding-right: 76px;
+
+}
+
+
+// tool listing
+.tool-category{
+  h1{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
+    font-weight: 600;
+    font-size: 30px;
+    color:black;
+  }
+}
+
+.tool-form{
+  form-control{
+    border-radius: 10px;
+
+    .btn{
+      background-color: $main-color;
+      color: $tertiary-color;
+    }
   }
 
 }
 
+.row-tool{
+  padding-left: 92px;
+}
+.tool-maincard{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.tool-card{
+  margin: 0.5rem 0.25rem 1rem 0.2rem;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  padding: 10px;
+}
+
+.tool-card-body{
+  h4{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color:black;
+    padding-top:5px;
+
+  }
+  a{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    color:$main-color;
+  }
+}
 
 .description{
   align-items: center;
