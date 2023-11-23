@@ -61,7 +61,7 @@
                 <p>Start Date: <%= t.start_date %></p>
                 <p>End Date<%= t.end_date %></p>
               </div>
-              <%=link_to "View Item",  tool_path(t.id), class: "btn btn-flat" %>
+              <%=link_to "View Item",  tool_booking_path(t.tool_id, t.id), class: "btn btn-flat" %>
             </div>
           </div>
           <% end %>

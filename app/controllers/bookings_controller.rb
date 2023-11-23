@@ -25,6 +25,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+    @tool = Tool.find(params[:tool_id])
+    @user = User.find(@tool.user_id)
+  end
+
   def update
     if @booking.update(booking_params)
         redirect_to @booking, notice: 'Change request updated!'
