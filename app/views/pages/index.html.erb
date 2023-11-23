@@ -24,16 +24,16 @@
           <h3><%= @tools.length %> items </h3>
         </div>
         <div class="card" style="width: 25rem;" id="total-booking">
-          <p>WHAT I RENT</p>
+          <p>MY BOOKING</p>
           <h3><%= @booking.length %> items</h3>
         </div>
         <div class="card" style="width: 25rem;" id="total-rental">
-          <p>THING THAT I RENTED</p>
+          <p>THINGS THAT I RENTED</p>
           <h3><%= %>items</h3>
         </div>
       </div>
 
-     
+
       <div class="booking-card">
         <h2>My Booking on Other Items</h2>
         <div class="row">
@@ -44,7 +44,7 @@
                 <p>Booking Status :<%= t.status %></p>
                 <p>Total Price: $<%= t.price %>/day</p>
                 <p>Start Date: <%= t.start_date %></p>
-                <p>End Date<%= t.end_date %></p>
+                <p>End Date:<%= t.end_date %></p>
               </div>
               <%=link_to "View Item",  tool_path(t.id), class: "btn btn-flat" %>
             </div>
