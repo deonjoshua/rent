@@ -33,22 +33,7 @@
         </div>
       </div>
 
-      <div class="listing-card">
-        <h2>Your Listing</h2>
-        <div class="row " id="tool_listing">
-          <% @tools.each do |t| %>
-          <div class="card" style="width: 18rem; background-image: linear-gradient(rgba(0,0,0,0.49), rgba(0,0,0,0.3)), url('<%= cl_image_path t.image.key, height: 100, crop: :scale %>')">
-            <div class="tool-row d-flex" style="justify-content: center;text-align:center;" >
-              <div class="description ml-3">
-                <h4><%= t.name %></h4>
-                <p>$<%= t.rate %>/day</p>
-                <%=link_to "View Item",  tool_path(t.id), class: "btn btn-flat" %>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </div>
-      </div>
+     
       <div class="booking-card">
         <h2>My Booking on Other Items</h2>
         <div class="row">

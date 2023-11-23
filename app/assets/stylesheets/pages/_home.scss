@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 .banner{
-  background: url("/app/assets/images/banner_rent.png") no-repeat center;
+  background-image: url(asset_path('banner_rent.png')) ;
   background-size: contain;
 }
 

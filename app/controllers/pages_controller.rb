@@ -21,6 +21,6 @@ class PagesController < ApplicationController
 
   def show
     @user = current_user
-    @tools = Tool.where(user_id:@user_id)
+    @tools = Tool.where(user_id:@user.id)
   end
 end
