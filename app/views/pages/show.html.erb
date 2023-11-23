@@ -1,6 +1,7 @@
 <div class="container">
   <div class="listing-card">
     <h2>Your Listing</h2>
+    <h2><%= @tools.length %> item in total</h2>
     <div class="row " id="tool_listing">
       <% @tools.each do |t| %>
       <div class="card">

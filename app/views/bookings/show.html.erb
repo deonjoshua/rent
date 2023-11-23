@@ -1,8 +1,29 @@
-<p> Your Booking is Confirmed!</p>
- <p> Booked dates - <%= @booking.start_date %> to <%= @booking.end_date %></p>
- <p> Tool - <%= @tool.name %></p>
- <p> Description - <%= @tool.description %></p>
- <p> Total Price -<%= @booking.price %></p>
- <p> Lender Name - <%= @user.first_name %>  <%= @user.last_name %></p>
- <p> Lender Address -  <%= @user.address %></p>
- <p> Lender Phone Number -  <%= @user.phone_number %></p>
+<div class="container">
+  <div class="row" style="justify-content:center;">
+    <div class="col-8 mt-5" style="border: ridge;
+    padding: 31px;">
+      <div class="booking-title d-flex">
+        <i class="fa-solid fa-circle-check" style="color: #d76565;"></i>
+        <h3> Booking confirmed</h3>
+      </div>
+      <div class="bookingall d-flex">
+        <div class="booking-description col-6">
+          <h2>Details</h2>
+          <p><strong> Booking reference: <%= @booking.tool_id %></strong></p>
+          <p> Item: <%= @tool.name %></p>
+          <p> Booking Date: <%= @booking.start_date %> to <%= @booking.end_date %></p>
+          <p> Total Price: $<%= @booking.price %></p>
+        </div>
+        <div class="booking-rental col-6">
+          <h2>Item collection:</h2>
+          <p> Name: <%= @user.first_name %>  <%= @user.last_name %></p>
+          <p> Address:  <%= @user.address %></p>
+          <p> Phone number:  <%= @user.phone_number %></p>
+        </div>
+      </div>
+      <div class="bookingconfirm-btn">
+        <%=link_to "View Booking",  dashboard_path, class: "btn btn-flat update" %>
+      </div>
+    </div>
+  </div>
+</div>

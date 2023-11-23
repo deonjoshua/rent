@@ -1,7 +1,90 @@
 // Import page-specific CSS files here.
 @import "home";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+$main-color: #712323;
+$secondary-color: #A27777;
+$tertiary-color:#32D89C;
+$main-font: 'Poppins', sans-serif;
 
 
 #dashboard-bigcard{
   margin-left:40px;
+}
+
+#dashboard-profile{
+  border-right: groove;
+  border-right-color: bisque;
+}
+
+#total-listing{
+  font-family: $main-font;
+  width: 25rem;
+  border-radius: 10px;
+  background: #3f6487;
+  color: white;
+  font-weight: 700;
+  padding-left: 27px;
+  padding-top: 13px;
+  p{
+    font-size: 18px;
+  }
+  h3{
+    font-size: 20px;
+  }
+}
+
+#total-booking{
+  font-family: $main-font;
+  width: 25rem;
+  border-radius: 10px;
+  background: rgb(63, 135, 131);
+  color: white;
+  font-weight: 700;
+  padding-left: 27px;
+  padding-top: 13px;
+  p{
+    font-size: 18px;
+  }
+  h3{
+    font-size: 20px;
+  }
+}
+
+.topdash-left{
+  h2{
+    font-weight: 600;
+    color: #115ea2;
+    font-size: 18px;
+  }
+  h3{
+    font-weight: 600;
+    color: #b9bfc4;
+    font-size: 16px;
+  }
+}
+
+.topdash-right {
+  .btn{
+    border-radius: 10px;
+    padding: 7px;
+    padding-left: 27px;
+    padding-right: 27px;
+  }
+}
+
+
+
+.tool-row{
+  p{
+    font-size: 14px;
+    font-weight: 600;
+    font-family: $main-font;
+  }
+  h3{
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    color: #a9a8a8;
+  }
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
 
   <div class="row">
-    <div class="col-3" style="background-color:#6eb9d1">
+    <div class="col-3 sm-3" id="dashboard-profile">
       <div class="row">
         <div class="profile-dash p-5">
           <%= image_tag "https://i.pravatar.cc/150?img=68", class: "profile-img", alt: "image" %>
@@ -9,51 +9,81 @@
         <div class="profile pt-5">
         <h3>Name: <%= @user.first_name %> <%= @user.last_name  %></h3>
         <p>Email: <%= @user.email %></p>
-        <p>Phone Number: <%= @user.phone_number %></p>
-        <p>Address: <%= @user.address %></p>
-        <%=link_to "Edit Profile",  edit_user_registration_path, class: "btn btn-flat" %>
+        <%=link_to "Profile Detail",  edit_user_registration_path, class: "dash-profile" %>
+        <%=link_to "My Listing",  mylisting_path, class: "dash-listing" %>
         </div>
       </div>
     </div>
 
-    <div class="col-8" id="dashboard-bigcard">
-      <h2>DASHBOARD</h2>
+    <div class="col-8 sm-6" id="dashboard-bigcard">
+      <div class="top-dash d-flex" style="justify-content: space-between;">
+        <div class="topdash-left">
+          <h2>Hello, <%= @user.first_name %></h2>
+          <h3>Today is <%= @day %>
+        </div>
+        <div class="topdash-right">
+          <%=link_to "Add Listing",  new_tool_path, class: "btn btn-flat" %>
+        </div>
+      </div>
+
       <div class="row">
         <div class="card" style="width: 25rem;" id="total-listing">
-          <p>TOTAL LISTING</p>
-          <h3><%= @tools.length %> items </h3>
+          <h3>TOTAL LISTING</h3>
+          <p><%= @tools.length %> items </p>
         </div>
         <div class="card" style="width: 25rem;" id="total-booking">
-          <p>MY BOOKING</p>
-          <h3><%= @booking.length %> items</h3>
-        </div>
-        <div class="card" style="width: 25rem;" id="total-rental">
-          <p>THINGS THAT I RENTED</p>
-          <h3><%= %>items</h3>
-        </div>
+          <h3>WHAT I EARNED</h3>
+          <% total_value = 0 %>
+          <% @booking.each do |t| %>
+            <% total_value += t.price%>
+          <% end %>
+          <p><strong>$ <%= total_value %></strong></p>
       </div>
 
 
       <div class="booking-card">
-        <h2>My Booking on Other Items</h2>
+        <h2>Current Renting</h2>
         <div class="row">
-          <% @booking.each do |t| %>
-          <div class="card" style="width: 35rem;">
-            <div class="tool-row" d-flex style="justify-content: center;text-align:center;" >
-              <div class="description ml-3">
-                <p>Booking Status :<%= t.status %></p>
-                <p>Total Price: $<%= t.price %>/day</p>
-                <p>Start Date: <%= t.start_date %></p>
-                <p>End Date:<%= t.end_date %></p>
+          <% if !(@booking.all == nil) %>
+            <% @booking.each do |t| %>
+            <div class="card">
+              <div class="tool-row d-flex" style="justify-content: space-around;">
+                <div class="dash-item">
+                  <h3>Item</h3>
+                  <%= t.tool_id %>
+                </div>
+                <div class="dash-bookid ml-3">
+                  <h3>Booking Id</h3>
+                  <p><%= t.id %></p>
+                </div>
+                <div class="dash-renter">
+                  <h3>Renter</h3>
+                </div>
+                <div class="dash-bookdate">
+                  <h3>Booking Date</h3>
+                  <p><%= t.start_date %>-<%= t.end_date %></p>
+                </div>
+                <div class="dash-status">
+                  <h3>Status</h3>
+                  <p><%=t.status%></p>
+                </div>
+                <div class="dash-price">
+                  <h3>Price</h3>
+                  <p>$<%= t.price %></p>
+                </div>
+                <%=link_to "View Item",  tool_path(t.id), class: "btn btn-flat" %>
               </div>
-              <%=link_to "View Item",  tool_booking_path(t.tool_id, t.id), class: "btn btn-flat" %>
             </div>
-          </div>
+            <% end %>
+          <% else %>
+            <p>You currently have no booking</p>
           <% end %>
         </div>
       </div>
+
+
       <div class="rental-card">
-        <h2>Booking on my Item</h2>
+        <h2>My Item Booking</h2>
         <div class="row">
         <% @tools.each do |tool| %>
           <% Booking.all.each do |booking| %>
