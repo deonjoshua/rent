@@ -8,7 +8,8 @@ $main-font: 'Poppins', sans-serif;
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: $fourth-color;
+  border-bottom: inset;
+  border-color: aliceblue;
   padding: 20px;
 }
 

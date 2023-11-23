@@ -11,10 +11,7 @@ class PagesController < ApplicationController
 
     # booking on other tool
     @booking = Booking.where(user_id:@user.id)
-    # @booking.tool_id = Booking.find(tool_id:params[:id])
-
-    # find booking on other people tool
-    # @booking = Booking.where(user_id:@tool.user_id)
+    @day = Date.today
     # raise
 
   end

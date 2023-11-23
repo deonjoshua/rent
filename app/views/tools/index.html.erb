@@ -11,7 +11,7 @@
               class: "form-control",
               placeholder: "Look for something specific?"
           %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <%= submit_tag "Search", name: "", class: "btn search-btn" %>
       <% end %>
     </div>
 
@@ -20,7 +20,7 @@
       <div class="tool-maincard">
         <% @tools.each do|b| %>
           <div class="tool-card" >
-              <%= cl_image_tag b.image.key, height: 150, width: 300, crop: :fill %>
+              <%= cl_image_tag b.image.key, height: 400, width: 400, crop: :scale %>
               <div class="tool-card-body">
                 <h3><strong><%= link_to b.name, tool_path(b.id) %></strong></h3>
                 <h4>$<%= b.rate %>/day</h4>

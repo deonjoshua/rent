@@ -1,1 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
+$main-color: #712323;
+$secondary-color: #A27777;
+$tertiary-color:#32D89C;
+$main-font: 'Poppins', sans-serif;
+
+.booking-title{
+  h3{
+    font-family:$main-font;
+    color: #d76565;
+    padding-left: 21px;
+    font-weight: 550;
+    font-size: 20px;
+
+  }
+  .fa-solid{
+    font-size: 24px;
+  }
+
+}
+
+.bookingall{
+    border-top: outset;
+    border-top-style: 1px solid black;
+    border-top-color: #f4f4f4;
+    margin-top: 30px;
+}
+
+.booking-description{
+  padding: 30px;
+  margin-top: 22px;
+
+  h2{
+    font-family:$main-font;
+    font-weight: 600;
+    font-size: 25px;
+
+  }
+
+  p{
+    font-family: $main-font;
+    font-weight: 400;
+    font-size: 14px;
+
+  }
+}
+
+.booking-rental{
+  padding: 30px;
+  margin-top: 22px;
+  h2{
+    font-family:$main-font;
+    font-weight: 600;
+    font-size: 25px;
+
+  }
+
+  p{
+    font-family:$main-font;
+    font-weight: 400;
+    font-size: 14px;
+
+  }
+}
+
+.bookingconfirm-btn{
+  padding-top: 20px;
+  padding-left: 134px;
+
+  .btn{
+    border-radius: 20px;
+    background-color: #f1f1f1;
+    color: $main-color;
+    border-color:$main-color;
+    padding-right: 14rem;
+    padding-left: 14rem;
+
+    &:hover{
+      color: black;
+      border-color:$main-color
+
+    }
+  }
+
+
+}
