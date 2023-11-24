@@ -13,14 +13,18 @@ class BookingsController < ApplicationController
     if (@booking.end_date == nil || @booking.start_date == nil)
       redirect_to tool_path(@tool), notice: "Please enter dates"
     else
-      @booking.price = (@booking.end_date - @booking.start_date) * @tool.rate
-      @booking.status = "Booked"
-      @booking.tool_id = @tool_id
-      @booking.user = current_user
-      if @booking.save
-        redirect_to tool_booking_path(@tool_id, @booking.id), notice: 'Succesful booking!'
+      if !(Tool.find(@tool_id).user_id == current_user.id)
+        @booking.price = (@booking.end_date - @booking.start_date) * @tool.rate
+        @booking.status = "Booked"
+        @booking.tool_id = @tool_id
+        @booking.user = current_user
+        if @booking.save
+          redirect_to tool_booking_path(@tool_id, @booking.id), notice: 'Succesful booking!'
+        else
+          render :new
+        end
       else
-        render :new
+        redirect_to tool_path(@tool_id), notice: "You can't book your own Tool mate!"
       end
     end
   end
