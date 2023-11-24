@@ -1,7 +1,14 @@
+$main-color: #3f8783;
+$secondary-color: #3f6487;
+$tertiary-color:#32D89C;
+$fourth-color:#5CE1E6;
+$main-font: 'Poppins', sans-serif;
+
+
 .btn{
-  background: rgb(19, 89, 94);
+  background:$fourth-color;
   border-radius: 2px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: white;
+  color: rgb(15, 14, 14);
 
 }

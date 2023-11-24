@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-$main-color: #712323;
-$secondary-color: #A27777;
+$main-color: #3f8783;
+$secondary-color: #3f6487;
 $tertiary-color:#32D89C;
+$fourth-color:#5CE1E6;
 $main-font: 'Poppins', sans-serif;
 
 .booking-title{
   h3{
     font-family:$main-font;
-    color: #d76565;
+    color: #289717;
     padding-left: 21px;
     font-weight: 550;
     font-size: 20px;
@@ -16,6 +17,7 @@ $main-font: 'Poppins', sans-serif;
   }
   .fa-solid{
     font-size: 24px;
+    color: #289717;
   }
 
 }
@@ -70,11 +72,11 @@ $main-font: 'Poppins', sans-serif;
 
   .btn{
     border-radius: 20px;
-    background-color: #f1f1f1;
-    color: $main-color;
-    border-color:$main-color;
+    background-color: $main-color;
+    color: #ffff;
     padding-right: 14rem;
     padding-left: 14rem;
+    font-weight: 800;
 
     &:hover{
       color: black;
