@@ -36,8 +36,10 @@
         <div class="card" style="width: 31rem;" id="total-booking">
           <h3>WHAT I EARNED</h3>
           <% total_value = 0 %>
-          <% @booking.each do |t| %>
-            <% total_value += t.price%>
+          <% @lent.each do |booking| %>
+            <% if Tool.find(booking.tool_id).user_id == current_user.id %>
+                <% total_value += booking.price %>
+            <% end %>
           <% end %>
           <p><strong>$ <%= total_value %></strong></p>
       </div>

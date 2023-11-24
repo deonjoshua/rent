@@ -1,27 +1,33 @@
 <div class="rental-card">
   <div class="row">
-    <% Booking.all.each do |booking| %>
-      <% Tool.all.each do |tool| %>
-        <div class="card">
-          <div class="tool-row d-flex" style="justify-content: space-around;">
-            <div class="dash-item">
-              <h3>Item</h3>
-              <p><%= tool.name %><p>
-            </div>
-            <div class="dash-bookdate">
-              <h3>Booking Date</h3>
-              <p><%=booking.start_date %> - <%= booking.end_date %></p>
-            </div>
-            <div class="dash-status">
-              <h3>Status</h3>
-              <p><%= booking.status %></p>
-            </div>
-            <div class="dash-price">
-              <h3>Price</h3>
-              <p>$ <%= booking.price %></p>
+    <% @lent.each do |booking| %>
+      <% if Tool.find(booking.tool_id).user_id == current_user.id %>
+        <% @tool = Tool.find(booking.tool_id)%>
+          <div class="card">
+            <div class="tool-row d-flex" style="justify-content: space-around;">
+              <div class="dash-item">
+                <h3>Item</h3>
+                <p><%= @tool.name %><p>
+              </div>
+              <div class="dash-bookdate">
+                <h3>Booking Date</h3>
+                <p><%=booking.start_date %> - <%= booking.end_date %></p>
+              </div>
+              <div class="dash-bookdate">
+                <h3>Borrower</h3>
+                <% @user = User.find(booking.user_id) %>
+                <p> <%= @user.first_name %> <%= @user.last_name %></p>
+              </div>
+              <div class="dash-status">
+                <h3>Status</h3>
+                <p><%= booking.status %></p>
+              </div>
+              <div class="dash-price">
+                <h3>Price</h3>
+                <p>$ <%= booking.price %></p>
+              </div>
             </div>
           </div>
-        </div>
       <% end %>
     <% end %>
   </div>

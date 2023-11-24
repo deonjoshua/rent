@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
     if (@booking.end_date == nil || @booking.start_date == nil)
       redirect_to tool_path(@tool), notice: "Please enter dates"
     else
-      @booking.price = (@booking.end_date - @booking.start_date) * Tool.find(@tool_id).rate
+      @booking.price = (@booking.end_date - @booking.start_date) * @tool.rate
       @booking.status = "Booked"
       @booking.tool_id = @tool_id
       @booking.user = current_user

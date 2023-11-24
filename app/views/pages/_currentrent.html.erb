@@ -13,6 +13,11 @@
               <h3>Booking Id</h3>
               <p><%= t.id %></p>
             </div>
+            <div class="dash-bookid ml-3">
+              <h3>Lender</h3>
+              <% @user = User.find(Tool.find(t.tool_id).user_id)%>
+              <p><%= @user.first_name %> <%= @user.last_name %></p>
+            </div>
             <div class="dash-bookdate">
               <h3>Booking Date</h3>
               <p><%= t.start_date %>-<%= t.end_date %></p>
