@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-$main-color: #712323;
-$secondary-color: #A27777;
+$main-color: #3f8783;
+$secondary-color: #3f6487;
 $tertiary-color:#32D89C;
-$fourth-color:#0981a7;
+$fourth-color:#5CE1E6;
 $main-font: 'Poppins', sans-serif;
 
 .navbar-lewagon {
   justify-content: space-between;
   border-bottom: inset;
   border-color: aliceblue;
-  padding: 20px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,7 +17,7 @@ $main-font: 'Poppins', sans-serif;
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 85px;
 }
 
 
@@ -32,7 +31,7 @@ $main-font: 'Poppins', sans-serif;
   font-size:16px;
   font-family: $main-font;
   color: #000000;
-  padding-right: 10px;
+  padding-right: 20px;
   text-decoration: none;
   }
 }

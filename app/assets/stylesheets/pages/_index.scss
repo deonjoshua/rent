@@ -1,10 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-$main-color: #712323;
-$secondary-color: #A27777;
+$main-color: #3f8783;
+$secondary-color: #3f6487;
 $tertiary-color:#32D89C;
+$fourth-color:#5CE1E6;
 $main-font: 'Poppins', sans-serif;
 
 
@@ -15,6 +15,8 @@ $main-font: 'Poppins', sans-serif;
 #dashboard-profile{
   border-right: groove;
   border-right-color: bisque;
+  font-size: 19px;
+    font-weight: 600;
 }
 
 #total-listing{
@@ -70,6 +72,9 @@ $main-font: 'Poppins', sans-serif;
     padding: 7px;
     padding-left: 27px;
     padding-right: 27px;
+    font-weight: 600;
+    font-size: 17px;
+    color: $secondary-color;
   }
 }
 
@@ -87,4 +92,77 @@ $main-font: 'Poppins', sans-serif;
     font-weight: 600;
     color: #a9a8a8;
   }
+  .btn{
+    font-size: 15px;
+    font-weight: 600;
+    width: 6rem;
+    height: 2rem;
+    margin-top: 33px;
+  }
+}
+
+
+.booking-card{
+  margin-top: 20px;
+  h2{
+    font-weight: 600;
+    font-size: 20px;
+  }
+}
+
+#dash-card{
+  .card{
+    width: 100%;
+    text-align: left;
+    margin: 0.1rem 0.25rem 1rem 0.2rem;
+  }
+}
+
+.booking-tab{
+  margin-top: 20px;
+}
+
+.rental-card{
+  margin-top: 20px;
+}
+
+.activetab{
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 16px;
+  color: $tertiary-color;
+  background: none;
+  border: none;
+
+  &:hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+  }
+
+  &:hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+
+#tab1, #tab2{
+  font-weight: 600;
+  font-size: 16px;
+  color: $main-color;
+  background: none;
+  border: none;
 }
