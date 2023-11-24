@@ -56,8 +56,11 @@ $main-font: 'Poppins', sans-serif;
 
 #showpage{
   margin-left: 40px;
-  position: sticky;
-  top: 0;
+  background: #fbfbfb;
+  padding-left: 27px;
+  margin: 20px;
+  border-radius: 20px;
+  padding-right: 41px;
 }
 
 .card-body{

@@ -4,11 +4,11 @@ User.destroy_all
 
 puts "Creating User"
 
-User.create!(email: "deon@gmail.com", password: "deonnn", first_name: "Deon", last_name:"Joshua", address: "Armadale, Melbourne, Australia", phone_number:"12345", )
-User.create!(email: "wendy@gmail.com", password: "wendyy", first_name: "Wendy", last_name:"Henry", address: "Carnegie, Melbourne, Australia", phone_number:"12345", )
-User.create!(email: "bob@gmail.com", password: "bobbbb", first_name: "Bob", last_name:"Marley", address: "Hawthorn, Melbourne, Australia", phone_number:"12345", )
-User.create!(email: "lucy@gmail.com", password: "lucyyy", first_name: "Lucy", last_name:"Santiago", address: "Newport, Melbourne, Australia", phone_number:"12345", )
-User.create!(email: "john@gmail.com", password: "johnnn", first_name: "John", last_name:"Wick", address: "Brunswick, Melbourne, Australia", phone_number:"12345", )
+User.create!(email: "deon@gmail.com", password: "deonnn", first_name: "Deon", last_name:"Joshua", address: "Armadale, Melbourne, Australia", phone_number:"12345",image_url: "https://i.pravatar.cc/150?img=68")
+User.create!(email: "wendy@gmail.com", password: "wendyy", first_name: "Wendy", last_name:"Henry", address: "Carnegie, Melbourne, Australia", phone_number:"12345",image_url: "https://i.pravatar.cc/150?img=46")
+User.create!(email: "bob@gmail.com", password: "bobbbb", first_name: "Bob", last_name:"Marley", address: "Hawthorn, Melbourne, Australia", phone_number:"12345",image_url:"https://i.pravatar.cc/150?img=65 ")
+User.create!(email: "lucy@gmail.com", password: "lucyyy", first_name: "Lucy", last_name:"Santiago", address: "Newport, Melbourne, Australia", phone_number:"12345", image_url:"https://i.pravatar.cc/150?img=49")
+User.create!(email: "john@gmail.com", password: "johnnn", first_name: "John", last_name:"Wick", address: "Brunswick, Melbourne, Australia", phone_number:"12345",image_url:"https://i.pravatar.cc/150?img=64")
 
 puts "Seeding Database"
 
@@ -18,7 +18,8 @@ article = Tool.new(
   description: "A hand tool for turning a screw, consisting of a handle attached to a long, narrow shank of metal, which tapers and flattens out to a tip that fits into the slotted head of a screw.",
   rate: Faker::Number.number(digits: 2),
   condition:"Mint",
-  user: User.first
+  user: User.first,
+  rating:Faker::Number.number(digits: 2)
 )
 article.image.attach(io: file, filename: "screwdriver.png", content_type: "image/png")
 article.save!
@@ -29,7 +30,8 @@ article = Tool.new(
     description: " a tool that has a heavy metal head attached to a handle and that is used for hitting nails or breaking things apart.",
     rate: Faker::Number.number(digits: 2),
     condition:"Excellent",
-    user: User.first
+    user: User.first,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "hammer.png", content_type: "image/png")
 article.save!
@@ -40,7 +42,8 @@ article = Tool.new(
     description: "a power tool that uses a rotating drill bit. It is used to create holes in various materials, such as wood, metal, and plastic.",
     rate: Faker::Number.number(digits: 2),
     condition:"Good",
-    user: User.first
+    user: User.first,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "drill.png", content_type: "image/png")
 article.save!
@@ -51,7 +54,8 @@ article = Tool.new(
     description: "A piece of equipment consisting of a series of steps between two upright lengths of metal, used for climbing up or down something.",
     rate: Faker::Number.number(digits: 2),
     condition:"Good",
-    user: User.first
+    user: User.first,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "ladder.png", content_type: "image/png")
 article.save!
@@ -62,7 +66,8 @@ article = Tool.new(
     description: "operated by hand, for tightening bolts and nuts.",
     rate: Faker::Number.number(digits: 2),
     condition:"Poor",
-    user: User.first
+    user: User.first,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "wrench.png", content_type: "image/png")
 article.save!
@@ -73,7 +78,8 @@ article = Tool.new(
     description: "a type of hand tool typically used to measure distance or size.",
     rate: Faker::Number.number(digits: 2),
     condition:"Excellent",
-    user: User.first
+    user: User.first,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "tape.png", content_type: "image/png")
 article.save!
@@ -84,7 +90,8 @@ article = Tool.new(
     description: "a hand tool used to hold objects firmly.",
     rate: Faker::Number.number(digits: 2),
     condition:"Mint",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "plier.png", content_type: "image/png")
 article.save!
@@ -95,7 +102,8 @@ article = Tool.new(
     description: "a simple and inexpensive holder, flat, approximately one inch (25 mm) wide and three to four inches (75 to 100 mm) long, made of metal and plastic.",
     rate: Faker::Number.number(digits: 2),
     condition:"Good",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "knife.png", content_type: "image/png")
 article.save!
@@ -106,7 +114,8 @@ article = Tool.new(
     description: "tool for cutting solid materials to prescribed lengths or shapes.",
     rate: Faker::Number.number(digits: 2),
     condition:"Poor",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "saw.png", content_type: "image/png")
 article.save!
@@ -117,7 +126,8 @@ article = Tool.new(
     description: "a suction device consisting of a cup-shaped piece of rubber on the end of a stick, used to get rid of things that are blocking pipes.",
     rate: Faker::Number.number(digits: 2),
     condition:"Good",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "plunger.png", content_type: "image/png")
 article.save!
@@ -128,7 +138,8 @@ article = Tool.new(
     description: "a small handheld tool that's used for for driving bolts and screws with a hexagonal socket.",
     rate: Faker::Number.number(digits: 2),
     condition:"Mint",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "hex.png", content_type: "image/png")
 article.save!
@@ -139,7 +150,8 @@ article = Tool.new(
     description: " handheld device used with wood buildings to locate framing studs located behind the final walling surface, usually drywall.",
     rate: Faker::Number.number(digits: 2),
     condition:"Excellent",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "stud.png", content_type: "image/png")
 article.save!
@@ -150,7 +162,8 @@ article = Tool.new(
     description: "a self-supporting, foldable, portable ladder that is non-adjustable in length, 32-inches or less in overall size, with flat steps and without a pail shelf.",
     rate: Faker::Number.number(digits: 2),
     condition:"Poor",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "stool.png", content_type: "image/png")
 article.save!
@@ -161,7 +174,8 @@ article = Tool.new(
     description: "used in different industries to store and transport tools while helping keep them organised and accessible.",
     rate: Faker::Number.number(digits: 2),
     condition:"Fair",
-    user: User.first
+    user: User.first,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "bag.png", content_type: "image/png")
 article.save!
@@ -172,7 +186,8 @@ article = Tool.new(
     description: "a tool with a large, barrel-shaped, head — used to pound on something.",
     rate: Faker::Number.number(digits: 2),
     condition:"Good",
-    user: User.first
+    user: User.first,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "mallet.png", content_type: "image/png")
 article.save!
@@ -183,7 +198,8 @@ article = Tool.new(
     description: "an oscillating power tool that can perform a wide variety of tasks thanks to interchangeable blades and accessories.",
     rate: Faker::Number.number(digits: 2),
     condition:"Mint",
-    user: User.first
+    user: User.first,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "multi.png", content_type: "image/png")
 article.save!
@@ -194,7 +210,8 @@ article = Tool.new(
     description: "device for establishing a horizontal plane. It consists of a small glass tube containing alcohol or similar liquid and an air bubble.",
     rate: Faker::Number.number(digits: 2),
     condition:"Good",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "level.png", content_type: "image/png")
 article.save!
@@ -205,7 +222,8 @@ article = Tool.new(
     description: "a small cart with a single wheel at the front and two supporting legs and two handles at the rear, used typically for carrying loads in building work or gardening.",
     rate: Faker::Number.number(digits: 2),
     condition:"Fair",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "barrow.png", content_type: "image/png")
 article.save!
@@ -216,7 +234,8 @@ article = Tool.new(
     description: "Got a little project. Our metal cutter are up for rental. Suitable for home renovation project.",
     rate: Faker::Number.number(digits: 2),
     condition:"Fair",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "metal cutter.png", content_type: "image/png")
 article.save!
@@ -227,7 +246,8 @@ article = Tool.new(
     description: "Strong vacuum for household use only. Able to vacuum in wet and dry area. Tools and vacuum bag are provided. Please remove the bag after use",
     rate: Faker::Number.number(digits: 2),
     condition:"Fair",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "vacuum.png", content_type: "image/png")
 article.save!
@@ -237,7 +257,8 @@ article = Tool.new(
     description: "Construction grade angle grinder. Suitable for wood and metal surface. Grinding pad are provided for wood surface only. Please provide yourself if different pad are required",
     rate: Faker::Number.number(digits: 2),
     condition:"Fair",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "anglegrinder.png", content_type: "image/png")
 article.save!
@@ -247,7 +268,8 @@ article = Tool.new(
     description: "Professional Quality. Fast sanding. Use for wood only.Do not use to sand metal.",
     rate: Faker::Number.number(digits: 2),
     condition:"Excellent",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "beltsander.png", content_type: "image/png")
 article.save!
@@ -257,7 +279,8 @@ article = Tool.new(
     description: "Suitable for house renovation project. Strong suction to collect the dust. Bag are not provided. Tool only",
     rate: Faker::Number.number(digits: 2),
     condition:"Fair",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "constvacuum.png", content_type: "image/png")
 article.save!
@@ -268,7 +291,8 @@ article = Tool.new(
     description: "Perfect for craft work.Portable and light to use. Equipped with safety button. Glue is not provided",
     rate: Faker::Number.number(digits: 2),
     condition:"Excellent",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "gluegun.png", content_type: "image/png")
 article.save!
@@ -279,7 +303,8 @@ article = Tool.new(
     description: "Portable wood sander. Lightweight and easy to use for small project.Included 2 set of batteries",
     rate: Faker::Number.number(digits: 2),
     condition:"Fair",
-    user: User.last
+    user: User.last,
+    rating:Faker::Number.number(digits: 2)
   )
 article.image.attach(io: file, filename: "sander.png", content_type: "image/png")
 article.save!

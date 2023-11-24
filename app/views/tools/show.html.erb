@@ -13,20 +13,25 @@
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      
-      <h5>Item owned by <%= @tool.user.first_name %></h5>
     </div>
   </div>
+
   <div class="col-4 pt-5" id="showpage" >
     <h3 class="tool-show"><%= @tool.name %></h3>
+    <div class="showcard d-flex" style="justify-content:space-between;">
+      <p>Item by <%= @tool.user.first_name %>
+      <p><i class="fa-solid fa-star" style="color: #e6d72d;"></i> <%= @tool.rating %></p>
+    </div>
+
     <div class="tool-rate">Daily Rate
       <p><strong>$<%= @tool.rate %></strong> /day</p>
     </div>
     <div data-controller="toggle" class="mt-5">
-      <button data-action="click->toggle#fire" class="showtoolbtn">Check Price and Availability</button>
+      <button data-action="click->toggle#fire" class="showtoolbtn">Price and Availability</button>
       <div data-toggle-target="togglableElement" class="d-none">
         <%= render "bookings/form", tool: @tool, booking: @booking %>
       </div>
     </div>
   </div>
+
 </div>
