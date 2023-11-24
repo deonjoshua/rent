@@ -1,31 +1,27 @@
 <div class="rental-card">
   <div class="row">
-    <% @tools.each do |tool| %>
-      <% Booking.all.each do |booking| %>
-        <% if (booking.tool_id == nil) %>
-          <div class="card">
-            <div class="tool-row d-flex" style="justify-content: space-around;">
-              <div class="dash-item">
-                <h3>Item</h3>
-                <p><%= tool.name %><p>
-              </div>
-              <div class="dash-bookdate">
-                <h3>Booking Date</h3>
-                <p><%=booking.start_date %> - <%= booking.end_date %></p>
-              </div>
-              <div class="dash-status">
-                <h3>Status</h3>
-                <p><%= booking.status %></p>
-              </div>
-              <div class="dash-price">
-                <h3>Price</h3>
-                <p>$ <%= booking.price %></p>
-              </div>
+    <% Booking.all.each do |booking| %>
+      <% Tool.all.each do |tool| %>
+        <div class="card">
+          <div class="tool-row d-flex" style="justify-content: space-around;">
+            <div class="dash-item">
+              <h3>Item</h3>
+              <p><%= tool.name %><p>
+            </div>
+            <div class="dash-bookdate">
+              <h3>Booking Date</h3>
+              <p><%=booking.start_date %> - <%= booking.end_date %></p>
+            </div>
+            <div class="dash-status">
+              <h3>Status</h3>
+              <p><%= booking.status %></p>
+            </div>
+            <div class="dash-price">
+              <h3>Price</h3>
+              <p>$ <%= booking.price %></p>
             </div>
           </div>
-        <% else %>
-          <p>No booking on your item</p>
-        <% end %>
+        </div>
       <% end %>
     <% end %>
   </div>

@@ -1,41 +1,33 @@
 <div class="booking-card">
   <div class="row" id="dash-card">
-    <% if !(@booking.all == nil) %>
+
       <% @booking.each do |t| %>
-      <div class="card">
-        <div class="tool-row d-flex" style="justify-content: space-around;">
-          <div class="dash-item">
-            <h3>Item</h3>
-            <p><%= t.tool.name %><p>
-            <p><%= t.tool_id %></p>
+        <div class="card">
+          <div class="tool-row d-flex" style="justify-content: space-around;">
+            <div class="dash-item">
+              <h3>Item</h3>
+              <p><%= t.tool.name %><p>
+              <p><%= t.tool_id %></p>
+            </div>
+            <div class="dash-bookid ml-3">
+              <h3>Booking Id</h3>
+              <p><%= t.id %></p>
+            </div>
+            <div class="dash-bookdate">
+              <h3>Booking Date</h3>
+              <p><%= t.start_date %>-<%= t.end_date %></p>
+            </div>
+            <div class="dash-status">
+              <h3>Status</h3>
+              <p><%=t.status%></p>
+            </div>
+            <div class="dash-price">
+              <h3>Price</h3>
+              <p>$<%= t.price %></p>
+            </div>
+            <%=link_to "View Item",  tool_booking_path(t.tool_id, t.id), class: "btn btn-flat" %>
           </div>
-          <div class="dash-bookid ml-3">
-            <h3>Booking Id</h3>
-            <p><%= t.id %></p>
-          </div>
-          <div class="dash-renter">
-            <h3>Renter</h3>
-            <p><%= t.user.first_name %></p>
-            <p><%= t.user.email %></p>
-          </div>
-          <div class="dash-bookdate">
-            <h3>Booking Date</h3>
-            <p><%= t.start_date %>-<%= t.end_date %></p>
-          </div>
-          <div class="dash-status">
-            <h3>Status</h3>
-            <p><%=t.status%></p>
-          </div>
-          <div class="dash-price">
-            <h3>Price</h3>
-            <p>$<%= t.price %></p>
-          </div>
-          <%=link_to "View Item",  tool_booking_path(t.tool_id, t.id), class: "btn btn-flat" %>
         </div>
-      </div>
       <% end %>
-    <% else %>
-      <p>You currently have no booking</p>
-    <% end %>
   </div>
 </div>

@@ -4,13 +4,15 @@
     <div class="col-3 sm-3" id="dashboard-profile">
       <div class="row">
         <div class="profile-dash p-5">
-          <%= image_tag "https://i.pravatar.cc/150?img=68", class: "profile-img", alt: "image" %>
+
+          <%= image_tag @user.image_url %>
         </div>
         <div class="profile pt-5">
         <h3><%= @user.first_name %> <%= @user.last_name  %></h3>
         <p><%= @user.email %></p>
-        <%=link_to "Profile Detail",  edit_user_registration_path, class: "dash-profile" %>
-        <%=link_to "My Listing",  mylisting_path, class: "dash-listing" %>
+        <p><%= @user.phone_number %></p>
+        <p><%= @user.address %></p>
+        <p class="profile-link"><%=link_to "My Listing",  mylisting_path, class: "dash-listing" %></p>
         </div>
       </div>
     </div>
@@ -27,11 +29,11 @@
       </div>
 
       <div class="row">
-        <div class="card" style="width: 25rem;" id="total-listing">
+        <div class="card" style="width: 31rem;" id="total-listing">
           <h3>TOTAL LISTING</h3>
           <p><%= @tools.length %> items </p>
         </div>
-        <div class="card" style="width: 25rem;" id="total-booking">
+        <div class="card" style="width: 31rem;" id="total-booking">
           <h3>WHAT I EARNED</h3>
           <% total_value = 0 %>
           <% @booking.each do |t| %>
@@ -49,8 +51,8 @@
 
           <!-- buttons to toggle between tabs -->
           <div class="flex">
-            <button id="tab1" data-tabs-target="btn" data-action="click->tabs#select">Current Renting</button>
-            <button id="tab2" data-tabs-target="btn" data-action="click->tabs#select">My Rental</button>
+            <button id="tab1" data-tabs-target="btn" data-action="click->tabs#select">Borrowed Items</button>
+            <button id="tab2" data-tabs-target="btn" data-action="click->tabs#select">Lent Items</button>
           </div>
 
           <!-- the tabs -->
