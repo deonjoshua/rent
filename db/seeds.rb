@@ -4,11 +4,11 @@ User.destroy_all
 
 puts "Creating User"
 
-User.create!(email: "deon@gmail.com", password: "deonnn", first_name: "Deon", last_name:"Joshua", address: "Armadale", phone_number:"12345", )
-User.create!(email: "wendy@gmail.com", password: "wendyy", first_name: "Wendy", last_name:"Henry", address: "Carnegie", phone_number:"12345", )
-User.create!(email: "bob@gmail.com", password: "bobbbb", first_name: "Bob", last_name:"Marley", address: "Hawthorn", phone_number:"12345", )
-User.create!(email: "lucy@gmail.com", password: "lucyyy", first_name: "Lucy", last_name:"Santiago", address: "Newport", phone_number:"12345", )
-User.create!(email: "john@gmail.com", password: "johnnn", first_name: "John", last_name:"Wick", address: "Brunswick", phone_number:"12345", )
+User.create!(email: "deon@gmail.com", password: "deonnn", first_name: "Deon", last_name:"Joshua", address: "Armadale, Melbourne, Australia", phone_number:"12345", )
+User.create!(email: "wendy@gmail.com", password: "wendyy", first_name: "Wendy", last_name:"Henry", address: "Carnegie, Melbourne, Australia", phone_number:"12345", )
+User.create!(email: "bob@gmail.com", password: "bobbbb", first_name: "Bob", last_name:"Marley", address: "Hawthorn, Melbourne, Australia", phone_number:"12345", )
+User.create!(email: "lucy@gmail.com", password: "lucyyy", first_name: "Lucy", last_name:"Santiago", address: "Newport, Melbourne, Australia", phone_number:"12345", )
+User.create!(email: "john@gmail.com", password: "johnnn", first_name: "John", last_name:"Wick", address: "Brunswick, Melbourne, Australia", phone_number:"12345", )
 
 puts "Seeding Database"
 
